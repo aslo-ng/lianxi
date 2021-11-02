@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>下载</button>
+		<div></div>
+	</body>
+	<script src="31ajax/ajax.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var btn=document.getElementsByTagName('button')[0]
+		var odiv=document.getElementsByTagName('div')[0]
+		btn.onclick=function(){
+			$ajax({
+				method:'get',
+				url:'xiazai.json',				
+				sucess:function(data){
+					var data=JSON.parse(data)
+					for(var k in data){
+						document.body.innerHTML='<p>'+data[k].name+'</p>'
+					}
+				}
+			})
+		}
+	</script>
+</html>
